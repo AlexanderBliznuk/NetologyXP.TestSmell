@@ -26,24 +26,20 @@ suite('when barmen pour whisky', function () {
     setup(function (done) {
         (0, _me.sober)();
         (0, _barmen.free)();
+        done();
     });
 
     suite('i ask 50 grams', function () {
         test('I get and drink whisky', function (done) {
-            _fs2.default.readFile('whisky.jpg', function (err, whisky) {
-                if (err) {
-                    throw err;
-                }
+            var whisky = new Image();
+            var iAskVolume = 50;
 
-                var iAskVolume = 50;
+            var volumeInGlass = (0, _barmen.pour)(whisky, iAskVolume);
+            (0, _me.drink)(volumeInGlass);
 
-                var volumeInGlass = (0, _barmen.pour)(whisky, iAskVolume);
-                (0, _me.drink)(volumeInGlass);
+            _assert2.default.equal(iAskVolume, volumeInGlass);
 
-                _assert2.default.equal(iAskVolume, volumeInGlass);
-
-                done();
-            });
+            done();
         });
     });
 
