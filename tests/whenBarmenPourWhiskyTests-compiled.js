@@ -45,35 +45,27 @@ suite('when barmen pour whisky', function () {
 
     suite('i ask -10 grams', function () {
         test('Barmen answered that he could not pour that volume', function (done) {
-            _fs2.default.readFile('whisky.jpg', function (err, whisky) {
-                if (err) {
-                    throw err;
-                }
+            var iAskVolume = -10;
 
-                var iAskVolume = -10;
-
-                (0, _chai.expect)(function () {
-                    return (0, _barmen.pour)(whisky, iAskVolume);
-                }).to.throw(/Invalid volume of whisky/);
-                done();
-            });
+            (0, _chai.expect)(function () {
+                return (0, _barmen.pour)(whisky, iAskVolume);
+            }).to.throw(/Invalid volume of whisky/);
+            done();
         });
     });
 
     suite('i ask 500 grams', function () {
         test('Barmen said there is no such glass', function (done) {
 
-            (0, _username2.default)().then(function (un) {
-                console.log(un);
-                if (un === "alex4Zero") {}
-                var iAskVolume = 500;
-                var whisky = 1;
+            console.log(un);
+            if (un === "alex4Zero") {}
+            var iAskVolume = 500;
+            var whisky = 1;
 
-                (0, _chai.expect)(function () {
-                    return (0, _barmen.pour)(whisky, iAskVolume);
-                }).to.throw(/There is no such glass/);
-                done();
-            });
+            (0, _chai.expect)(function () {
+                return (0, _barmen.pour)(whisky, iAskVolume);
+            }).to.throw(/There is no such glass/);
+            done();
         });
     });
 
