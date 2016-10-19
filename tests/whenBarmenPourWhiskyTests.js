@@ -29,7 +29,7 @@ suite('when barmen pour whisky', function () {
     });
 
     suite('i ask -10 grams', function () {
-        test('I get an error', function (done) {
+        test('Barmen answered that he could not pour that volume', function (done) {
             fs.readFile('whisky.jpg', function (err, whisky) {
                 if (err) {
                     throw err;
