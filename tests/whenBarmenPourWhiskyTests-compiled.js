@@ -24,14 +24,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 suite('when barmen pour whisky', function () {
     setup(function (done) {
-        this.timeout(20000);
         (0, _me.sober)();
-        (0, _imageDownloader.download)('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg', 'mycar.jpg', function () {
-            var car = (0, _me.getMyCar)("mycar.jpg");
-            (0, _me.goToBar)(car);
-            (0, _barmen.free)();
-            done();
-        });
+        (0, _barmen.free)();
     });
 
     suite('i ask 50 grams', function () {
@@ -47,8 +41,6 @@ suite('when barmen pour whisky', function () {
                 (0, _me.drink)(volumeInGlass);
 
                 _assert2.default.equal(iAskVolume, volumeInGlass);
-                _assert2.default.equal(false, (0, _me.isDrunked)());
-                _assert2.default.equal(50, (0, _me.getTotallyDrunked)());
 
                 done();
             });
