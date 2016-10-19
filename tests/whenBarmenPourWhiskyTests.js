@@ -11,6 +11,7 @@ suite('when barmen pour whisky', function () {
     setup(function (done) {
         sober();
         freeBarmen();
+        done();
     });
 
     suite('i ask 50 grams', function () {
