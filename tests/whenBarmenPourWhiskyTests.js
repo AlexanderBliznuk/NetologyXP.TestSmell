@@ -31,6 +31,7 @@ suite('when barmen pour whisky', function () {
     suite('i ask -10 grams', function () {
         test('Barmen answered that he could not pour that volume', function (done) {
             var iAskVolume = -10;
+            let whisky = new Image;
 
             expect(() => pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
             done();
